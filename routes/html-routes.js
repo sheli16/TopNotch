@@ -101,21 +101,18 @@ app.get('/authenticated', function(req,res){
 
 // ----------------------------basic routes
 	app.get('/', function(req, res){
-		res.render('/index', {
-			
-		});
+		res.redirect('index.html')
+		
 	});
 
 	app.get('/index', function(req, res){
-		res.redirect('/');
+		res.redirect('/index.html');
 	});
 
 	app.get('/dash', function(req, res){
 		if (req.isAuthenticated()) {
 			console.log(req.user.userId);
-			res.redirect('/dash.html', {
-				
-			});
+			res.redirect('/dash.html');
 		}
 		else {
 			res.redirect('/verify');
@@ -144,7 +141,7 @@ app.get('/authenticated', function(req,res){
 		if (req.isAuthenticated()) {
 			
 			ormdb.selectAll(req.user.userId, function(result){
-		            res.render('dash.html', {
+		            res.redirect('dash.html', {
 		            	// jobs1: result
 		            });
 			});
