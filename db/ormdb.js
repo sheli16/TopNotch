@@ -1,11 +1,12 @@
 var orm = require('../db/orm.js');
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: process.argv[2],
-    database: 'topNotchdb'
-});
+mysql.createConnection(process.env.JAWSDB_URL);
+// var connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: process.argv[2],
+//     database: 'topNotchdb'
+// });
 // Delete customer from database
 var ormdb = {
     deleteCust: function(userId, Id) {

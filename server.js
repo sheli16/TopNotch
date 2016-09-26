@@ -14,7 +14,8 @@ var session = require('express-session');
 // var session = require('path');
 var orm = require('./db/orm.js');
 var ormdb = require('./db/ormdb.js');
-var PORT = 8080;
+// var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 		
 //Handlebars-------------------------------------------------------
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -43,7 +44,7 @@ app.use(express.static('/views'));
 
 
 //Routes-----------------------------------------------------------
-require('/routes/html-routes.js')(app);
+require('routes/html-routes.js')(app);
 
 
 // // In your app.js 
