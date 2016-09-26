@@ -39,12 +39,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static('/public'));
-app.use(express.static('/views'));
+// app.use(express.static('/views'));
 //-----------------------------------------------------------------
 
 
 //Routes-----------------------------------------------------------
-require('routes/html-routes.js')(app);
+require('./routes/html-routes.js')(app);
 
 
 // // In your app.js 
